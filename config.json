@@ -1,0 +1,18 @@
+{
+    "params": {
+        "local_server": "True",
+        "local_uri": "mysql+pymysql://root:@localhost/flaskblog",
+        "prod_uri": "mysql+pymysql://root:@localhost/mythunderblog",
+        "fb_url": "https://facebook.com/codingthunder",
+        "tw_url": "https://twitter.com/codingthunder",
+        "gt_url": "https://github.com/codingthunder",
+        "blog_name": "Coding Thunder",
+        "tag_line": "A Blog liked by the programmers",
+        "about_text": "Hi my name is Killer and i am created a first blog so that everybody can understnad about programming n everybody can learn it..",
+        "no_of_posts": 3,
+        "login_image": "login.svg",
+        "admin_user": "raja",
+        "admin_password": "freefire",
+        "upload_location": "C:\\flask blog\\static"
+    }
+}

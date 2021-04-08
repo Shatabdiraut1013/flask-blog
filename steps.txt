@@ -1,0 +1,41 @@
+- we will make website on blog
+- install xampp -> apache n mysql
+- localhost/phpmyadmin/ (in google url)
+- fetch our blogs using for loop which is written inside the index.html file
+- in phpmyadmin -> new -> db name -> create -> than create table name write the name than go than in table check auto increment as primary key than click go (we do primary key becz through these sno which we will make primary key we can fech the data) -> than save
+- by default we have to insert one data so that our auto increment part works.
+- in date do datetime n current time stamp as default
+
+
+- in powershell pip install flask-sqlalchemy
+- in xampp if you have done ur istallation in simple username is root , password is blank, server is localhost, n write ur db name which u will give in phpmyadmin
+- write ur class name in capital whether u will write in db or not
+- u must include name in form n write action = "/contact" n also write method is "POST" (we will write action becaz jab bhi hum logg submit main click karenge toh woh /contact ke endpoint main request marega)
+- when u r using virtual env than u have to do pip install pymysql than ('mysql+pymysql://username:password@localhost/db_name')
+- when we r not using virtual env than we dont have to do pip install pymysql and 
+('mysql://username:password@localhost/db_name')
+- production_uri must be differnet when u r hosting ur webiste online
+
+
+- in config.json file anybody can access it so that it can change the local_uri , etc etc
+- for sending mails in (pip install flask-mail)
+- params['gmail-user'] -> for read what is inside the params
+- {{post.content[0:13]}} -> means main post ke content main pura content show nahi karungi onky 13 character show karungi
+- when we write img_url in db than that file must be include in static folder otherwise our db will not fetch
+
+- for session set the secret key
+
+- make the upload_location \\(double backslash) for uploader "upload_location": "C:\\flask blog\\static" -> this means it will upload in static folder
+
+- last part create pagination
+    # Pagination logic (make new n previous functionality in home page)
+-> In pagination part we will do three things when user is on first page, middle page, last page
+--> first page (when user is on first page)
+    previous page = nothing(becaz user is on first page so no previous page is there)
+    next page = page + 1 (means user will go on 2nd page by click on next page button)
+--> middle page (when user is on middle page)
+    previous page = page - 1 (means user is on 2nd page when it will click on previous page it will go to 1st page)
+    next page = page + 1 (when user click on next page it will go to 3rd page)
+--> last page (when user is on last page)
+    previous page = page - 1 (when user is on 3rd page by click on previous page it will go to 2nd page)
+    next page = nothing (there is no next page becaz user visit on last page)    

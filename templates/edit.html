@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<!-- Page Header -->
+<div class="overlay"></div>
+<div class="overlay"></div>
+
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto mt-3">
+            <h1>Basic Actions</h1>
+            <a href="/login"><button type="button" class="btn btn-info mr-2"> Dashboard Home </button></a>
+            <a href="/logout"> <button type="button" class="btn btn-success"> Logout
+                </button></a>
+            <hr>
+
+            <h1 class="text-center">Add/Edit posts</h1>
+
+            <form name="sentMessage" id="editform" action="/edit/{{post.sno}}" method="POST" novalidate>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Title</label>
+                        <!-- value={{post.title}} -> means it will auto fill -->
+                        <!-- value will only work with input field -->
+                        <!-- post.whatever we will write it come from db what we will there -->
+                        <input type="text" class="form-control" placeholder="Title" id="title" name="title" required
+                            data-validation-required-message="Please enter your name." value="{{post.title}}">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Sub Heading</label>
+                        <input type="text" class="form-control" placeholder="Sub Heading" id="tline" name="sub_heading"
+                            required data-validation-required-message="Please enter your email address."
+                            value="{{post.sub_heading}}">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group col-xs-12 floating-label-form-group controls">
+                        <label>Slug</label>
+                        <input type="text" class="form-control" placeholder="Slug" id="slug" name="slug" required
+                            data-validation-required-message="Please enter your phone number." value="{{post.slug}}">
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Content</label>
+                        <textarea rows="5" class="form-control" placeholder="Content" id="content" name="content"
+                            required
+                            data-validation-required-message="Please enter a message.">{{post.content}}</textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls">
+                        <label>Image File</label>
+                        <input rows="5" class="form-control" placeholder="Image File" id="img_file" name="img_file"
+                            value="{{post.img_file}}"></input>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                <br>
+                <div id="success"></div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

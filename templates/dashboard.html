@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/home-bg.jpg') }}')">
+    <div class="overlay"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>Admin Panel</h1>
+                    <span class="subheading">Manage your posts and change them</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1>Basic Actions</h1>
+            <!-- /edit/0 we write becaz it will add a new post -->
+            <a href="/edit/0"><button type="button" class="btn btn-info"> Add a
+                    New
+                    Post </button></a>
+            <a href="/logout"> <button type="button" class="btn btn-success"> Logout
+                </button></a>
+            <hr>
+            <br>
+
+            <h1>Upload a File</h1>
+            <form action="/uploader" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file1">
+                <button type="submit" class="btn btn-success"> Submit
+                </button>
+            </form>
+            <hr>
+
+            <h1 class="text-center">Edit posts</h1>
+
+            <!-- in this table we want database se post sab fetch ho -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Sno</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <!-- using for loop we will fetch from db so that we show in admin panel -->
+                    {% for post in posts %}
+
+                    <tr>
+                        <td>{{post.sno}}</td>
+                        <td>{{post.title}}</td>
+                        <td>{{post.date}}</td>
+                        <td><a href="/edit/{{post.sno}}"><button type="button" class="btn btn-danger">Edit</button></a>
+                        </td>
+                        <td><a href="/delete/{{post.sno}}"><button type="button"
+                                    class="btn btn-info">Delete</button></a></td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
