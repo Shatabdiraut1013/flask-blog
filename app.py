@@ -130,6 +130,7 @@ def edit(sno):
             img_file = request.form.get('img_file')
             date = datetime.now()
 
+            # for add new post
             if sno == '0':
                 post = Posts(title=title, sub_heading=sub_heading, slug=slug,
                              content=content, img_file=img_file, date=date)
